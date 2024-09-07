@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- <link rel="stylesheet" href="./style.css" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    button#ai-bot-btn,
+    button#click-bot-btn {
+      border-radius: 5px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      border: 1px solid #a29c9c;
+      padding: 6px 26px 4px 25px;
+    }
+
+    .CityPara {
+      background: #F2F2F2;
+      width: 75%;
+      border-radius: 8px;
+      padding: 21px 0 18px 13px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+    }
+
+    button.city-btn {
+      border: 1px solid #ccc;
+      padding: 5px 21px 4px 38px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    .colony-btn,
+    .size-btn,
+    .help-btn {
+      border: 1px solid #ccc;
+      padding: 8px;
+      border-radius: 10px;
+      margin: 5px;
+    }
+
+    .fa-solid {
+      color: #fff;
+    }
+
+    #home-btn,
+    #back-btn {
+      display: block;
+      background: transparent;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="MainWrapper">
+    <nav class="navbar navbar-expand-lg" id="TopHeader">
+      <div class="container">
+        <a class="navbar-brand logo" href="#">ChatBot<span class="dot">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <form class="d-flex" role="search">
+                        <button class="btn" type="submit">Contact Us</button>
+                    </form>
+                </div> -->
+      </div>
+    </nav>
+    <div id="Bg_Wrapper">
+      <!-- <div class="overlay"></div> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 colWrapp">
+            <div class="contentWrapper">
+              <div class="subTitle_Wrap">
+                <span class="dash"></span>
+                <span class="dashTitle">uncovring your perfect</span>
+              </div>
+              <h1 class="Main_Title">fully managed chatbot platform</h1>
+              <span class="btmDash"></span>
+              <p class="PaRa">automate and apply intelligence in every step of your support manage content
+                in
+                a
+                simple and flexible
+                way</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ....chatbot...contaniner...... -->
+  <button class="chatbot-toggler">
+    <!-- <link rel="icon" href="/static/images/icon.png"> -->
+    <img class="chatbotIcon" src="/static/images/icon.png" alt="Chatbot Icon">
+    <!-- <img class="chatbotIcon"  src="../static/images/icon.png" /> -->
+    <!-- s -->
+  </button>
+  <div class="chatbot">
+    <header>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 col-md-4">
+            <button id="back-btn" style="display: none">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h2>ChatBot</h2>
+          </div>
+          <div class="col-lg-4 col-md-4 d-flex justify-content-end">
+            <!-- Add this button somewhere in your HTML, outside the chatbox -->
+            <button id="home-btn" style="display: none">
+              <i class="fa-solid fa-house"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+
+    <ul class="chatbox">
+      <li class="chat incoming">
+        <p> Hi I am your chatbot👋<br> that deals with all your queries regarding Salesforce!
+        </p>
+      </li>
+    </ul>
+    <div class="get-started">
+      <button id="get-started-btn">Get Started</button>
+      <form id="user-info-form" style="display: none;">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="chat-input" style="display: none;">
+      <textarea placeholder="Enter a message..." id="inputField" spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/index2.js') }}"></script>
+  <!-- <script src="index2.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+
+</body>
+
+</html>
